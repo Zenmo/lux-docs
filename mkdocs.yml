@@ -1,17 +1,36 @@
-site_name: Zenmo Zero Model Documentation
+site_name: LUX Model Documentation
 nav:
   - Home: index.md
-  - Modelstructuur: modelstructuur.md
-  - Modeling conventions: modeling_conventions.md
-  - Lombok in AnyLogic: lombok/lombok.md
-  - Rekenregels: rekenregels.md
-  - Energy assets: energy_assets.md
-  - Prijzen en geldstromen: prijzen_en_geldstromen.md
-  - KPI berekeningen: KPI_berekeningen.md
-  - Datasets: datasets.md
-  - Interfaces: interfaces.md
-  - Results_ui: results_ui.md
-  
+  - Engine:
+    - Overview: engine/overview.md
+    - Grid Nodes: engine/grid_nodes.md
+    - Grid Connections: engine/grid_connections.md
+    - Energy Cooperatives: engine/energy_coops.md
+    - Energy Assets: engine/energy_assets.md
+    - Consistency Checks: engine/consistency_checks.md
+    - Energy Management Systems: engine/energy_management_systems.md
+    - Option Lists: engine/option_lists.md
+    - Energy Carriers: engine/energy_carriers.md
+    - Energy Model: engine/energy_model.md
+    - Energy Data: engine/energy_data.md
+    - Data Structures:
+      - Overview: engine/data_structures/data_structures.md
+      - Time Series: engine/data_structures/time_series.md
+      - Accumulators: engine/data_structures/accumulators.md
+      - Accumulator Maps: engine/data_structures/accumulator_maps.md
+      - Value Maps: engine/data_structures/value_maps.md
+      - Flows Maps: engine/data_structures/flows_maps.md
+      - DataSet Maps: engine/data_structures/dataset_maps.md
+      - Profile Pointers: engine/data_structures/profile_pointers.md
+      - Profile Forecasters: engine/data_structures/profile_forecasters.md
+  - Loader:
+    - Overview: loader/overview.md
+    - Lombok: loader/lombok/lombok.md
+  - Interface:
+    - Overview: interface/overview.md
+  - ResultsUI:
+    - Overview: resultsUI/overview.md
+
 theme: readthedocs
 markdown_extensions:
   - pymdownx.tilde
