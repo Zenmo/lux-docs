@@ -4,7 +4,10 @@ WORKDIR /app
 
 RUN pip install mkdocs pymdown-extensions
 
-COPY --parents mkdocs.yml docs /app/
+# --parents is unsupported by older Podman on GitHub Actions.
+#COPY --parents mkdocs.yml docs /app/
+COPY mkdocs.yml /app/
+COPY docs/ /app/docs/
 RUN mkdocs build
 
 FROM lipanski/docker-static-website:latest

@@ -4,13 +4,15 @@ ContainerName=luxdocs
 Image=ghcr.io/zenmo/luxdocs:latest
 
 Network=traefik
+# Needed for busybox httpd
+RunInit=true
 
 Label=traefik.enable=true
 Label="traefik.http.routers.luxdocs.rule=Host(`docs.lux.energy`) || Host(`zerodocs.zenmo.com`)"
 Label=traefik.http.routers.luxdocs.tls.certResolver=DNSimpleChallenge
 Label=traefik.http.routers.luxdocs.tls.domains[0].main=*.zenmo.com
 Label=traefik.http.routers.luxdocs.tls.domains[1].main=*.lux.energy
-Label=traefik.http.routers.luxdocs.middlewares=coco-redirect
+Label=traefik.http.routers.luxdocs.middlewares=luxdocs-redirect
 Label=traefik.http.middlewares.luxdocs-redirect.redirectRegex.regex=^https://zerodocs.zenmo.com/(.*)
 Label=traefik.http.middlewares.luxdocs-redirect.redirectRegex.replacement=https://docs.lux.energy/$${1}
 
