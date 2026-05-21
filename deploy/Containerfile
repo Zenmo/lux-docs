@@ -1,0 +1,14 @@
+FROM docker.io/library/python:3.14.5 AS builder
+
+WORKDIR /app
+
+RUN pip install mkdocs pymdown-extensions
+
+COPY --parents mkdocs.yml docs /app/
+RUN mkdocs build
+
+FROM lipanski/docker-static-website:latest
+
+COPY --from=builder /app/site .
+
+CMD ["/busybox-httpd", "-f", "-v", "-p", "3000"]
