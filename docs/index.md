@@ -20,7 +20,7 @@ Links to other md files:
 
 ## mkDocs
 
-Made using mkDocs:[^1]
+Made using mkDocs:
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Commands
@@ -36,5 +36,3 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
-
-[^1]: My reference.
