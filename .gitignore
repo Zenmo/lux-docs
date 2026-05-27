@@ -1,1 +1,4 @@
 .idea
+/zero_engine
+opencode.Containerfile
+compose.yaml

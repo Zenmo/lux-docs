@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Time Series - LUX Model Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Time Series";
+        var mkdocs_page_input_path = "engine/data_structures/time_series.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> LUX Model Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Engine</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../grid_nodes/">Grid Nodes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../grid_connections/">Grid Connections</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../energy_coops/">Energy Cooperatives</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../energy_assets/">Energy Assets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../consistency_checks/">Consistency Checks</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../energy_management_systems/">Energy Management Systems</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../option_lists/">Option Lists</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../energy_carriers/">Energy Carriers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../energy_model/">Energy Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../energy_data/">Energy Data</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Data Structures</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../data_structures/">Overview</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Time Series</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../accumulators/">Accumulators</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../accumulator_maps/">Accumulator Maps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../value_maps/">Value Maps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../flows_maps/">Flows Maps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../dataset_maps/">DataSet Maps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../profile_pointers/">Profile Pointers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../profile_forecasters/">Profile Forecasters</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Loader</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../loader/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../loader/lombok/lombok/">Lombok</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Interface</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../interface/overview/">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ResultsUI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../resultsUI/overview/">Overview</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">LUX Model Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Engine</li>
+          <li class="breadcrumb-item">Data Structures</li>
+      <li class="breadcrumb-item active">Time Series</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="time-series">Time Series</h1>
+<p>The class <code>ZeroTimeSeries</code> is almost completely analogous to the <a href="../accumulators/">Accumulator</a> except that it does not require the entries to have the unit kW (any unit can be used).</p>
+<p>It is different in the following ways:</p>
+<ul>
+<li>The time series class always stores the full time series as a <code>double[]</code> array, whereas this is optional for the accumulator.</li>
+<li>The time series stores only one value per signal resolution entry (no averaging of sub-steps when resolution differs from the simulation timestep — it uses a sample weight instead).</li>
+<li>There is no 'map' variant of the time series object to conveniently store multiple series for different energy carriers or other option lists, as this has not been needed.</li>
+<li>The time series provides <code>getSum()</code>, <code>getSumPos()</code>, and <code>getSumNeg()</code> methods (raw sums of the time series values), whereas the accumulator provides integrals in kWh.</li>
+</ul>
+<p>The constructor accepts two arguments:</p>
+<ul>
+<li><strong>double signalResolution_h</strong>: The resolution of the time series. Must be at least the simulation timestep.</li>
+<li><strong>double duration_h</strong>: The total duration for which data is stored.</li>
+</ul>
+<p>Key methods:</p>
+<ul>
+<li><strong><code>addStep(double value)</code></strong>: Adds a data point for the current time step.</li>
+<li><strong><code>getSum()</code> / <code>getSumPos()</code> / <code>getSumNeg()</code></strong>: Returns the sum, positive sum, or negative sum of all values.</li>
+<li><strong><code>getTimeSeries()</code></strong>: Returns the underlying <code>double[]</code> array.</li>
+<li><strong><code>getMax()</code> / <code>getMin()</code></strong>: Returns the maximum/minimum value.</li>
+<li><strong><code>getDataSet(double startTime_h)</code></strong>: Converts the time series to an AnyLogic DataSet for charting.</li>
+<li><strong><code>add(ZeroTimeSeries zts)</code> / <code>subtract(ZeroTimeSeries zts)</code></strong>: Element-wise addition/subtraction of time series.</li>
+</ul>
+<p>The time series object is used to store simulation results. Compare this to the <a href="../profile_pointers/">profile pointer</a>, which also stores a series of data points, but these are input data like weather data or market prices.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../data_structures/" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../accumulators/" class="btn btn-neutral float-right" title="Accumulators">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../data_structures/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../accumulators/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

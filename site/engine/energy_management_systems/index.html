@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Energy Management Systems - LUX Model Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Energy Management Systems";
+        var mkdocs_page_input_path = "engine/energy_management_systems.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> LUX Model Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Engine</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../grid_nodes/">Grid Nodes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../grid_connections/">Grid Connections</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../energy_coops/">Energy Cooperatives</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../energy_assets/">Energy Assets</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../consistency_checks/">Consistency Checks</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Energy Management Systems</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#j_energymanagementdefault">J_EnergyManagementDefault</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#j_isie_ems">J_ISIE_EMS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#j_energymanagementelectrolyser">J_EnergyManagementElectrolyser</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#custom-ems">Custom EMS</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../option_lists/">Option Lists</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../energy_carriers/">Energy Carriers</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../energy_model/">Energy Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../energy_data/">Energy Data</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Data Structures</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../data_structures/data_structures/">Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../data_structures/time_series/">Time Series</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../data_structures/accumulators/">Accumulators</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../data_structures/accumulator_maps/">Accumulator Maps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../data_structures/value_maps/">Value Maps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../data_structures/flows_maps/">Flows Maps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../data_structures/dataset_maps/">DataSet Maps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../data_structures/profile_pointers/">Profile Pointers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../data_structures/profile_forecasters/">Profile Forecasters</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Loader</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../loader/overview/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../loader/lombok/lombok/">Lombok</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Interface</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../interface/overview/">Overview</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ResultsUI</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../resultsUI/overview/">Overview</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">LUX Model Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Engine</li>
+      <li class="breadcrumb-item active">Energy Management Systems</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="energy-management-systems">Energy Management Systems</h1>
+<p>The Energy Management System (EMS) lives inside each <a href="../grid_connections/">GridConnection</a> and decides what all the flexible assets do at every timestep. The interface is <code>I_EnergyManagement</code>.</p>
+<p>There are three built-in implementations:</p>
+<h3 id="j_energymanagementdefault">J_EnergyManagementDefault</h3>
+<p>The default EMS that delegates to external sub-managers, called in the following order each timestep:</p>
+<ol>
+<li><strong>Heating</strong> (<code>I_HeatingManagement</code>) — controls heat pumps and heating systems.</li>
+<li><strong>Charging</strong> (<code>I_ChargingManagement</code>) — manages EV charging sessions.</li>
+<li><strong>Battery</strong> (<code>I_BatteryManagement</code>) — operates stationary battery storage.</li>
+<li><strong>Backup Generator</strong> (<code>I_BackupGeneratorManagement</code>) — runs backup generators if needed.</li>
+<li><strong>Curtailment</strong> (<code>I_CurtailManagement</code>) — curtails production when required.</li>
+</ol>
+<p>Constructor parameters: <code>GridConnection GC</code>, <code>J_TimeParameters timeParameters</code>.</p>
+<h3 id="j_isie_ems">J_ISIE_EMS</h3>
+<p>An integrated scheduling EMS that creates "virtual" assets for each flexible asset and schedules them using a merit order: <strong>EV → Heat Pump → Battery</strong>. It stores allowed operating times and min/max power for each asset, and creates a <code>J_Market</code> object per flex asset.</p>
+<p>Key features:
+* <strong>Self-consumption optimization</strong>: Maximizes on-site solar usage.
+* <strong>Peak shaving</strong>: Reduces peak import from the grid.
+* <strong>One-day-ahead scheduling</strong>: Makes a schedule based on a forecast.</p>
+<h3 id="j_energymanagementelectrolyser">J_EnergyManagementElectrolyser</h3>
+<p>Specialized EMS for electrolyser assets, managing hydrogen production and curtailment.</p>
+<h3 id="custom-ems">Custom EMS</h3>
+<p>You can implement your own EMS by implementing the <code>I_EnergyManagement</code> interface. The interface specifies:</p>
+<ul>
+<li><strong><code>manageFlexAssets(J_TimeVariables)</code></strong>: The main scheduling method called each timestep.</li>
+<li><strong><code>checkConfiguration(List&lt;J_EAFlex&gt;)</code></strong>: Validates that the set of flex assets is compatible with this EMS.</li>
+<li><strong><code>getInternalAssetManagements()</code> / <code>getSupportedExternalAssetManagements()</code> / <code>getActiveExternalAssetManagements()</code></strong>: Provide and track sub-managers.</li>
+<li><strong><code>setExternalAssetManagement(...)</code> / <code>removeExternalAssetManagement(...)</code></strong>: Add or remove sub-managers dynamically.</li>
+</ul>
+<p>Each EMS has a certain <strong>incentive</strong> — for example maximizing self-consumption from solar panels or reducing peak import from the grid. Systems can also differ in their approach: some decide at every timestep what to do in that same timestep, while others make a schedule based on a forecast. </p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../consistency_checks/" class="btn btn-neutral float-left" title="Consistency Checks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../option_lists/" class="btn btn-neutral float-right" title="Option Lists">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../consistency_checks/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../option_lists/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
