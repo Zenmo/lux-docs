@@ -134,7 +134,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="gridnodes">GridNodes</h1>
-<p>GridNodes are part of either the electricity or heat grid, depending on the value of <code>p_energyCarrier</code>. They form a hierarchical tree structure — the model does not support rings.</p>
+<p>GridNodes are part of either the electricity or heat grid, depending on the value of <code>p_energyCarrier</code>. They form a hierarchical tree structure — the model does not support rings in the gridnode topology.</p>
 <p><strong>Parameters:</strong></p>
 <ul>
 <li><strong><code>p_gridNodeID</code></strong>: A unique identifier (e.g. T0, T1, T2).</li>
@@ -142,28 +142,12 @@
 <li><strong><code>p_capacity_kW</code></strong>: The symmetrical capacity of this grid node.</li>
 <li><strong><code>p_realCapacityAvailable</code></strong>: Whether the capacity is known or estimated.</li>
 <li><strong><code>p_parentNodeID</code></strong>: The ID of the parent node in the tree.</li>
-<li><strong><code>p_transportBuffer</code></strong>: A transport buffer parameter.</li>
 </ul>
 <p><strong>Collections:</strong></p>
 <ul>
 <li><strong><code>c_connectedGridNodes</code></strong>: Child GridNodes connected below this node.</li>
 <li><strong><code>c_connectedGridConnections</code></strong>: <a href="../grid_connections/">GridConnections</a> connected to this node.</li>
 <li><strong><code>c_energyCoops</code></strong>: <a href="../energy_coops/">EnergyCoops</a> at this node.</li>
-<li><strong><code>c_connectedConsumptionAssets</code> / <code>c_connectedProductionAssets</code> / <code>c_connectedStorageAssets</code> / <code>c_connectedConversionAssets</code></strong>: Aggregated asset collections.</li>
-</ul>
-<p><strong>State:</strong></p>
-<ul>
-<li><strong><code>v_congested</code></strong>: Whether this node is currently congested.</li>
-<li><strong><code>v_congestionMode</code></strong>: The type of congestion (e.g. generation, consumption).</li>
-<li><strong><code>v_peakLoadAbsolute_kW</code></strong>: The peak load measured at this node.</li>
-<li><strong><code>v_loadFactor_fr</code></strong>: The load factor (utilization rate).</li>
-</ul>
-<p><strong>Key methods:</strong></p>
-<ul>
-<li><strong><code>f_connectToParentNode()</code></strong>: Connects this node to its parent GridNode and registers with the grid operator.</li>
-<li><strong><code>f_connectToChild(Agent)</code></strong>: Adds a child GridNode, GridConnection, or EnergyCoop to the appropriate collection.</li>
-<li><strong><code>f_propagateNodalPricing()</code></strong>: Propagates nodal pricing signals to child nodes and connections.</li>
-<li><strong><code>f_getLowerLVLConnectedGridNodes()</code> / <code>f_getAllConnectedGridNodes_recursion()</code></strong>: Recursive topology traversal helpers.</li>
 </ul>
               
             </div>

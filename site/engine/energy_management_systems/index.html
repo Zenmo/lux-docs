@@ -61,10 +61,6 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#j_energymanagementdefault">J_EnergyManagementDefault</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#j_isie_ems">J_ISIE_EMS</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#j_energymanagementelectrolyser">J_EnergyManagementElectrolyser</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#custom-ems">Custom EMS</a>
     </li>
     </ul>
@@ -145,29 +141,107 @@
 <p>The Energy Management System (EMS) lives inside each <a href="../grid_connections/">GridConnection</a> and decides what all the flexible assets do at every timestep. The interface is <code>I_EnergyManagement</code>.</p>
 <p>There are three built-in implementations:</p>
 <h3 id="j_energymanagementdefault">J_EnergyManagementDefault</h3>
-<p>The default EMS that delegates to external sub-managers, called in the following order each timestep:</p>
+<p>The default EMS that delegates to external sub-managers, calls them in the following order each timestep:</p>
 <ol>
 <li><strong>Heating</strong> (<code>I_HeatingManagement</code>) — controls heat pumps and heating systems.</li>
 <li><strong>Charging</strong> (<code>I_ChargingManagement</code>) — manages EV charging sessions.</li>
 <li><strong>Battery</strong> (<code>I_BatteryManagement</code>) — operates stationary battery storage.</li>
 <li><strong>Backup Generator</strong> (<code>I_BackupGeneratorManagement</code>) — runs backup generators if needed.</li>
-<li><strong>Curtailment</strong> (<code>I_CurtailManagement</code>) — curtails production when required.</li>
+<li>
+<p><strong>Curtailment</strong> (<code>I_CurtailManagement</code>) — curtails production when required.</p>
+</li>
+<li>
+<p>2f</p>
+</li>
+<li>2f</li>
+<li>2f</li>
+<li>
+<p>2f
+v</p>
+</li>
+<li>
+<p>werfvc</p>
+</li>
+<li>werfvc</li>
+<li>werfvc</li>
+<li>
+<p>werfvc
+v</p>
+</li>
+<li>
+<p>q3ewrf</p>
+</li>
+<li>q3ewrf</li>
+<li>q3ewrf</li>
+<li>
+<p>q3ewrf
+v</p>
+</li>
+<li>
+<p>43f</p>
+</li>
+<li>43f</li>
+<li>43f</li>
+<li>
+<p>43f
+v</p>
+</li>
+<li>
+<p>43f</p>
+</li>
+<li>43f</li>
+<li>43f</li>
+<li>
+<p>43f
+v</p>
+</li>
+<li>
+<p>43</p>
+</li>
+<li>43</li>
+<li>43</li>
+<li>
+<p>43
+v</p>
+</li>
+<li>
+<p>f43</p>
+</li>
+<li>f43</li>
+<li>f43</li>
+<li>
+<p>f43
+v</p>
+</li>
+<li>
+<p>f</p>
+</li>
+<li>f</li>
+<li>f</li>
+<li>
+<p>f
+v</p>
+</li>
+<li>
+<p>43f34</p>
+</li>
+<li>43f34</li>
+<li>43f34</li>
+<li>
+<p>43f34
+v</p>
+</li>
+<li></li>
+<li></li>
+<li></li>
+<li>v</li>
 </ol>
-<p>Constructor parameters: <code>GridConnection GC</code>, <code>J_TimeParameters timeParameters</code>.</p>
-<h3 id="j_isie_ems">J_ISIE_EMS</h3>
-<p>An integrated scheduling EMS that creates "virtual" assets for each flexible asset and schedules them using a merit order: <strong>EV → Heat Pump → Battery</strong>. It stores allowed operating times and min/max power for each asset, and creates a <code>J_Market</code> object per flex asset.</p>
-<p>Key features:
-* <strong>Self-consumption optimization</strong>: Maximizes on-site solar usage.
-* <strong>Peak shaving</strong>: Reduces peak import from the grid.
-* <strong>One-day-ahead scheduling</strong>: Makes a schedule based on a forecast.</p>
-<h3 id="j_energymanagementelectrolyser">J_EnergyManagementElectrolyser</h3>
-<p>Specialized EMS for electrolyser assets, managing hydrogen production and curtailment.</p>
 <h3 id="custom-ems">Custom EMS</h3>
 <p>You can implement your own EMS by implementing the <code>I_EnergyManagement</code> interface. The interface specifies:</p>
 <ul>
 <li><strong><code>manageFlexAssets(J_TimeVariables)</code></strong>: The main scheduling method called each timestep.</li>
 <li><strong><code>checkConfiguration(List&lt;J_EAFlex&gt;)</code></strong>: Validates that the set of flex assets is compatible with this EMS.</li>
-<li><strong><code>getInternalAssetManagements()</code> / <code>getSupportedExternalAssetManagements()</code> / <code>getActiveExternalAssetManagements()</code></strong>: Provide and track sub-managers.</li>
+<li><strong><code>getInternalAssetManagements()</code> / <code>getSupportedExternalAssetManagements()</code> / <code>getActiveExternalAssetManagements()</code></strong>: Provide and track the allowed sub-managers.</li>
 <li><strong><code>setExternalAssetManagement(...)</code> / <code>removeExternalAssetManagement(...)</code></strong>: Add or remove sub-managers dynamically.</li>
 </ul>
 <p>Each EMS has a certain <strong>incentive</strong> — for example maximizing self-consumption from solar panels or reducing peak import from the grid. Systems can also differ in their approach: some decide at every timestep what to do in that same timestep, while others make a schedule based on a forecast. </p>

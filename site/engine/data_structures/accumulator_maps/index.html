@@ -135,7 +135,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="accumulator-maps">Accumulator Maps</h1>
-<p>Accumulator Maps store a set of <a href="../accumulators/">accumulators</a> keyed by an enum type. The implementation is class <code>J_AccumulatorMap&lt;E extends Enum&lt;E&gt;&gt;</code>.</p>
+<p>Accumulator Maps store a set of <a href="../accumulators/">accumulators</a> keyed by an enum type. The implementation is class <code>J_AccumulatorMap&lt;E extends Enum&lt;E&gt;&gt;</code>. During the simulation the results are stored in these accumulators. Agents loop over their energy carriers, asset flow categories or other option list and the individual accumulators are accessed and updated.</p>
 <p>The constructor takes one argument:</p>
 <ul>
 <li><strong>Class\&lt;E&gt; enumClass</strong>: The enum type that defines the possible keys.</li>
@@ -149,14 +149,8 @@
 <li><strong><code>reset()</code></strong>: Resets all accumulators in the map.</li>
 <li><strong><code>clear()</code></strong>: Removes all accumulators from the map.</li>
 <li><strong><code>keySet()</code></strong>: Returns the set of keys that have accumulators.</li>
-</ul>
-<p>Just like the accumulator, it is possible to add or subtract entire accumulator maps (the keys must match).</p>
-<p>Convenience methods for aggregating over all keys:</p>
-<ul>
-<li><strong><code>totalIntegral_kWh()</code></strong>: Sum of <code>getIntegral_kWh()</code> across all accumulators.</li>
-<li><strong><code>totalIntegralPos_kWh()</code></strong>: Sum of <code>getIntegralPos_kWh()</code> across all accumulators.</li>
-<li><strong><code>totalIntegralNeg_kWh()</code></strong>: Sum of <code>getIntegralNeg_kWh()</code> across all accumulators.</li>
-<li><strong><code>totalIntegral_MWh()</code> / <code>totalIntegralPos_MWh()</code> / <code>totalIntegralNeg_MWh()</code></strong>: MWh variants of the above.</li>
+<li><strong><code>add(J_AccumulatorMap&lt;E&gt; accumulatorMap)</code></strong>: adds the accumulators of another accumulator map to the accumulators of this map and returns this object.</li>
+<li><strong><code>subtract(J_AccumulatorMap&lt;E&gt; accumulatorMap)</code></strong>: subtracts the accumulators of another accumulator map to the accumulators of this map and returns this object.</li>
 </ul>
 <p>Accumulator maps can be converted to <a href="../dataset_maps/">DataSetMaps</a> via <code>getDataSetMap(startTime_h)</code> or <code>getDataSetMap(startTime_h, dataSetSignalResolution_h)</code>. The latter allows downsampling to a coarser signal resolution, given that it is a multiple of the accumulator's resolution.</p>
               
