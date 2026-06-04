@@ -138,31 +138,31 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="consistency-checks">Consistency Checks</h1>
-<p>The LUX engine applies several consistency checks to ensure a correct and leak-free energy balance.</p>
+<p>The LUX engine applies several consistency checks to ensure a correct model.</p>
 <h2 id="configuration-check">Configuration Check</h2>
 <p>The configuration check validates the model setup before simulation. It is implemented as <code>f_checkConfiguration()</code> methods on the <a href="../energy_model/">EnergyModel</a> and <a href="../grid_connections/">GridConnections</a>.</p>
 <p>The EnergyModel's <code>f_checkConfiguration()</code> iterates over all GridConnections and calls their individual check.</p>
-<p>The GridConnection's <code>f_checkConfiguration()</code> checks:</p>
+<p>The GridConnection's <code>f_checkConfiguration()</code> checks for:</p>
 <ul>
-<li><strong>Flex assets without an EMS</strong>: If a GridConnection has flexible assets (<code>c_flexAssets</code>) but no <code>I_EnergyManagement</code> (EMS) is configured, a <code>RuntimeException</code> is thrown: <code>"GC: {id} has flex assets, without an EMS"</code>.</li>
-<li><strong>EMS-level validation</strong>: If an EMS is present, the check is delegated to the EMS's own <code>checkConfiguration()</code> method. Each EMS implementation validates that the set of flex assets matches its expected management types.</li>
+<li><strong>Flex assets without an EMS</strong>: If a GridConnection has flexible assets (<code>c_flexAssets</code>) but no <code>I_EnergyManagement</code> (EMS) is configured, a <code>RuntimeException</code> is thrown.</li>
+<li><strong>EMS-level validation</strong>: If an EMS is present, the check is delegated to the EMS's own <code>checkConfiguration()</code> method. Each EMS implementation validates that the set of flex assets matches its expected types.</li>
 </ul>
-<p>This ensures that every agent with flexible equipment has a valid control system assigned before the simulation runs.</p>
+<p>This ensures that every agent with flexible assets has a valid control system assigned before the simulation runs.</p>
 <h2 id="energy-balance-check">Energy Balance Check</h2>
 <p>The energy balance check (implemented as <code>f_performEnergyBalanceCheck()</code> on the EnergyModel) verifies the law of conservation of energy: energy cannot be created or destroyed in the model.</p>
 <p>Energy can only enter or leave the model through these paths:</p>
 <ul>
-<li><strong>Import</strong> of electricity, gas, hydrogen, and petroleum fuel.</li>
-<li><strong>Export</strong> of electricity, gas, and hydrogen.</li>
-<li><strong>Primary production</strong>: Energy harvested from the environment (e.g. wind, solar irradiation, ambient heat absorbed by buildings). Tracked as <code>energyProduction_kW</code>.</li>
-<li><strong>Final consumption</strong>: Energy that leaves the system as losses (dissipated heat, conversion losses, consumption profiles). Tracked as <code>energyConsumption_kW</code>.</li>
+<li><strong>Import</strong> of energy carriers.</li>
+<li><strong>Export</strong> of energy carriers.</li>
+<li><strong>Primary production</strong>: Energy harvested from the environment (e.g. wind, solar irradiation, ambient heat absorbed by buildings).</li>
+<li><strong>Final consumption</strong>: Energy that leaves the system as losses (dissipated heat, conversion losses, consumption profiles).</li>
 </ul>
 <p>The balance equation is:</p>
-<pre class="highlight"><code class="language-math">Production - Export = Consumption - Import = SelfConsumption</code></pre>
+<pre class="highlight"><code class="language-math">Production - Export = Consumption - Import</code></pre>
 <p>In code, the check computes:</p>
 <pre class="highlight"><code class="language-java">double energyBalanceCheck_MWh = totalImport_MWh + totalProduction_MWh
     - (totalExport_MWh + totalConsumption_MWh + totalDeltaStoredEnergy_MWh);</code></pre>
-<p>This value must be zero. If it exceeds a tolerance of 1e-6 MWh, a warning is logged. The check also accounts for changes in stored energy (battery charge state, thermal storage in buildings) to prevent false positives from energy buffers that are not empty at the end of the simulation.</p>
+<p>This value must be zero. If it exceeds a tolerance of 1e-6 MWh, a warning is logged. The check also accounts for changes in stored energy (battery charge state, thermal storage in buildings) to prevent false positives from energy buffers that the same at the end of the simulation compared to the start.</p>
               
             </div>
           </div><footer>

@@ -135,7 +135,6 @@
               
                 <h1 id="gridconnections">GridConnections</h1>
 <p>GridConnections are agents that represent a connection to the grid. These are usually homes or companies, but could also be solar fields, windmills, charging stations, large-scale batteries, or district heating heat sources.</p>
-<p>The class implements <code>I_EnergyData</code> and <code>I_AssetOwner</code>.</p>
 <p><strong>Parameters:</strong></p>
 <ul>
 <li><strong><code>p_gridConnectionID</code></strong>: A unique string to identify the GridConnection.</li>
@@ -147,21 +146,6 @@
 <ul>
 <li><strong><code>v_liveConnectionMetaData</code></strong>: Contains the contracted delivery/feed-in capacity, the physical capacity, and whether this information is known or estimated.</li>
 <li><strong><code>v_liveAssetsMetaData</code></strong>: Metadata about the assets (active flow categories, installed capacities).</li>
-</ul>
-<p><strong>Flow Maps (updated every timestep):</strong></p>
-<ul>
-<li><strong><code>fm_currentProductionFlows_kW</code></strong>: Energy carrier production flows.</li>
-<li><strong><code>fm_currentConsumptionFlows_kW</code></strong>: Energy carrier consumption flows.</li>
-<li><strong><code>fm_currentBalanceFlows_kW</code></strong>: Net balance per energy carrier.</li>
-<li><strong><code>fm_currentAssetFlows_kW</code></strong>: Flows per <a href="../data_structures/value_maps/">asset flow category</a>.</li>
-<li><strong><code>fm_consumptionForHeating_kW</code> / <code>fm_heatFromEnergyCarrier_kW</code></strong>: Heating-specific flows.</li>
-</ul>
-<p><strong>Asset Collections:</strong></p>
-<ul>
-<li><strong><code>c_fixedAssets</code> / <code>c_flexAssets</code> / <code>c_profileAssets</code></strong>: Fixed, flexible, and profile-based assets.</li>
-<li><strong><code>c_heatingAssets</code></strong>: Heat conversion assets.</li>
-<li><strong><code>c_electricVehicles</code></strong>: EVs connected to this GridConnection.</li>
-<li><strong><code>c_parentCoops</code></strong>: <a href="../energy_coops/">EnergyCoops</a> that this GridConnection is a member of.</li>
 </ul>
 <p><strong>Key methods:</strong></p>
 <ul>

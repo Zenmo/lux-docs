@@ -139,7 +139,7 @@
 <p>Unlike <a href="../accumulators/">Accumulators</a> and <a href="../time_series/">Time Series</a> which store simulation <em>results</em>, profile pointers read pre-defined input profiles. The profile data is stored as a <code>double[]</code> array with a fixed timestep.</p>
 <p>The constructor accepts the following arguments:</p>
 <ul>
-<li><strong>String name</strong>: A descriptive name for this profile (e.g. "temperature", "electricity_price").</li>
+<li><strong>String name</strong>: A descriptive name for this profile (e.g. "ground_temperature", "day_ahead_electricity_price").</li>
 <li><strong>double[] profile</strong>: The array of data values.</li>
 <li><strong>double dataTimeStep_h</strong>: The time step between consecutive values in the profile array.</li>
 <li><strong>double dataStartTime_h</strong>: The start time of the first profile entry, relative to 00:00 on January 1st of the simulation year.</li>
@@ -147,13 +147,13 @@
 </ul>
 <p>Key methods:</p>
 <ul>
-<li><strong><code>getValue(double time_h)</code></strong>: Returns the profile value at the given simulation time. Supports profile looping: when <code>enableProfileLooping</code> is true (default), indices beyond the array length wrap around using modulo arithmetic.</li>
-<li><strong><code>updateValue(double t_h)</code></strong>: Calls <code>getValue(t_h)</code> and stores the result internally.</li>
 <li><strong><code>getCurrentValue()</code></strong>: Returns the most recently updated value.</li>
+<li><strong><code>getValue(double time_h)</code></strong>: Returns the profile value at the given simulation time. Supports profile looping: when <code>enableProfileLooping</code> is true (default), indices beyond the array length wrap around using modular arithmetic.</li>
+<li><strong><code>updateValue(double t_h)</code></strong>: Calls <code>getValue(t_h)</code> and stores the result internally.</li>
 <li><strong><code>getAllValues()</code></strong>: Returns a clone of the full profile array.</li>
 <li><strong><code>getDataTimeStep_h()</code></strong>: Returns the time step of the profile data.</li>
 </ul>
-<p>The <code>updateValue</code> / <code>getCurrentValue</code> pattern is typically used each timestep during the simulation to avoid repeated index calculations.</p>
+<p>The <code>updateValue</code> / <code>getCurrentValue</code> pattern is used each timestep, called by the <a href="../../energy_model/">EnergyModel</a> for all profile pointers during the simulation to avoid repeated index calculations.</p>
 <p>For forecasting over a profile, see <a href="../profile_forecasters/">profile forecasters</a>.</p>
               
             </div>

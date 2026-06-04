@@ -142,14 +142,9 @@
 <p>The <code>EnergyCoop</code> agent implements <code>I_EnergyData</code>, exposing rapid-run and live data for results visualization. It extends the <code>Actor</code> class.</p>
 <p><strong>Key fields:</strong></p>
 <ul>
-<li><strong><code>c_memberGridConnections</code> / <code>c_customerGridConnections</code></strong>: GridConnections belonging to the cooperative as members (producers) or customers (consumers).</li>
-<li><strong><code>v_energyPassedThrough_kWh</code></strong>: Total energy passed through the cooperative.</li>
-<li><strong><code>v_electricityVolume_kWh</code> / <code>v_heatVolume_kWh</code> / <code>v_methaneVolume_kWh</code> / <code>v_hydrogenVolume_kWh</code></strong>: Energy volumes per carrier.</li>
-</ul>
-<p><strong>Key methods:</strong></p>
-<ul>
-<li><strong><code>f_connectToChild(Actor, OL_EnergyCarriers)</code></strong>: Adds members and customers, categorizing them by actor group.</li>
-<li><strong><code>f_updateIncentives()</code></strong>: Updates the cooperative's pricing incentives for its members.</li>
+<li><strong><code>c_memberGridConnections</code> / <code>c_customerGridConnections</code></strong>: GridConnections belonging to the cooperative as members (producers) or customers (consumers). In an E-Hub all gridconnections are members.</li>
+<li><strong><code>f_calculateEnergyBalance</code></strong>: This function is the main part of the engine loop every timestep. It resets the energy flows, loops through the coop members and customers to aggregate the energy flows. Then it stores the results in either the live data or rapidrun data class.</li>
+<li><strong><code>f_operateAggregatorEnergyManagement</code></strong>: This function is called by the energymodel after all gridconnections have operated their assets and will determine the behaviour for the aggregated assets for the next timestep. This means aggregated assets in an EnergyCoop will always have one timestep delay in their behaviour.</li>
 </ul>
 <p>The EnergyCoop agent allows for a centralized <a href="../energy_management_systems/">EMS</a> that takes control from individual GridConnections and manages all (or a subset of) the flexible assets from a single point. This allows members of an Energy Hub to use more of their existing connection capacities or increase their combined self-consumption.</p>
 <p>An example of an Energy Cooperative model developed with LUX is the <a href="https://coco.local4local.nu/">Cooperatie Configurator</a>. Models about Energy Hubs are usually restricted in their access because of the sensitive company data.</p>
