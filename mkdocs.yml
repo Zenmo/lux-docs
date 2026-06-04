@@ -4,6 +4,7 @@ nav:
   - Model assumptions: assumptions.md
   - User guide:
     - Project types: user/project-types.md
+    - UI tutorial: user/tutorial.md
     - Input data requirements:
       - Neighborhood: user/data/neighborhood.md
       - Businesspark: user/data/businesspark.md
