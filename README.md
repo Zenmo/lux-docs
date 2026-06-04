@@ -1,6 +1,6 @@
 # LUX ENERGY TWIN DOCUMENTATION 
 
-This repository contains the technical documentation for LUX Energy Twin, or LUX for short.
+This repository contains the code for the user and the technical documentation for LUX Energy Twin, or LUX for short.
 
 For those just interested in reading the docs, they can be easily accessed at [docs.lux.energy](https://docs.lux.energy).
 
