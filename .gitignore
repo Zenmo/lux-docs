@@ -2,3 +2,5 @@
 /zero_engine
 opencode.Containerfile
 compose.yaml
+
+.venv

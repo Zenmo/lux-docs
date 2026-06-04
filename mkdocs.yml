@@ -1,35 +1,48 @@
 site_name: LUX Model Documentation
 nav:
-  - Home: index.md
-  - Engine:
-    - Overview: engine/overview.md
-    - Grid Nodes: engine/grid_nodes.md
-    - Grid Connections: engine/grid_connections.md
-    - Energy Cooperatives: engine/energy_coops.md
-    - Energy Assets: engine/energy_assets.md
-    - Consistency Checks: engine/consistency_checks.md
-    - Energy Management Systems: engine/energy_management_systems.md
-    - Option Lists: engine/option_lists.md
-    - Energy Carriers: engine/energy_carriers.md
-    - Energy Model: engine/energy_model.md
-    - Energy Data: engine/energy_data.md
-    - Data Structures:
-      - Overview: engine/data_structures/data_structures.md
-      - Time Series: engine/data_structures/time_series.md
-      - Accumulators: engine/data_structures/accumulators.md
-      - Accumulator Maps: engine/data_structures/accumulator_maps.md
-      - Value Maps: engine/data_structures/value_maps.md
-      - Flows Maps: engine/data_structures/flows_maps.md
-      - DataSet Maps: engine/data_structures/dataset_maps.md
-      - Profile Pointers: engine/data_structures/profile_pointers.md
-      - Profile Forecasters: engine/data_structures/profile_forecasters.md
-  - Loader:
-    - Overview: loader/overview.md
-    - Lombok: loader/lombok/lombok.md
-  - Interface:
-    - Overview: interface/overview.md
-  - ResultsUI:
-    - Overview: resultsUI/overview.md
+  - Getting started: index.md
+  - Model assumptions: assumptions.md
+  - User guide:
+    - Project types: user/project-types.md
+    - UI tutorial: user/tutorial.md
+    - Input data requirements:
+      - Neighborhood: user/data/neighborhood.md
+      - Businesspark: user/data/businesspark.md
+      - Region: user/data/region.md
+    - Interpreting results: user/results.md
+    - Limitations & known issues: user/limitations.md
+
+  - Developer guide:
+    - Architecture overview: dev/architecture.md
+    - Engine:
+      - Overview: dev/engine/overview.md
+      - Grid Nodes: dev/engine/grid_nodes.md
+      - Grid Connections: dev/engine/grid_connections.md
+      - Energy Cooperatives: dev/engine/energy_coops.md
+      - Energy Assets: dev/engine/energy_assets.md
+      - Consistency Checks: dev/engine/consistency_checks.md
+      - Energy Management Systems: dev/engine/energy_management_systems.md
+      - Option Lists: dev/engine/option_lists.md
+      - Energy Carriers: dev/engine/energy_carriers.md
+      - Energy Model: dev/engine/energy_model.md
+      - Energy Data: dev/engine/energy_data.md
+      - Data Structures:
+        - Overview: dev/engine/data_structures/data_structures.md
+        - Time Series: dev/engine/data_structures/time_series.md
+        - Accumulators: dev/engine/data_structures/accumulators.md
+        - Accumulator Maps: dev/engine/data_structures/accumulator_maps.md
+        - Value Maps: dev/engine/data_structures/value_maps.md
+        - Flows Maps: dev/engine/data_structures/flows_maps.md
+        - DataSet Maps: dev/engine/data_structures/dataset_maps.md
+        - Profile Pointers: dev/engine/data_structures/profile_pointers.md
+        - Profile Forecasters: dev/engine/data_structures/profile_forecasters.md
+    - Loader:
+      - Overview: dev/loader/overview.md
+      - Lombok: dev/loader/lombok/lombok.md
+    - Interface:
+      - Overview: dev/interface/overview.md
+    - ResultsUI:
+      - Overview: dev/resultsUI/overview.md
 
 theme: readthedocs
 markdown_extensions:
