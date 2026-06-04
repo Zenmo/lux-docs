@@ -22,9 +22,9 @@ The duration of the simulation can be changed, but simulations longer than one y
 
 Every LUX model consists of 4 packages.
 
-* Engine: [Docs](engine/overview.md), [Github](https://github.com/Zenmo/zero_engine)
-* Loader/Interface: [Docs](loader/overview.md), [Github](https://github.com/Zenmo/zero_Interface-Loader)
-* ResultsUI: [Docs](resultsUI/overview.md), [Github](https://github.com/Zenmo/zero_results_UI)
+* Engine: [Docs](dev/engine/overview.md), [Github](https://github.com/Zenmo/zero_engine)
+* Loader/Interface: [Docs](dev/loader/overview.md), [Github](https://github.com/Zenmo/zero_Interface-Loader)
+* ResultsUI: [Docs](dev/resultsUI/overview.md), [Github](https://github.com/Zenmo/zero_results_UI)
 * Project: [Docs](?), [Github](https://github.com/Zenmo/LUX_ProjectTemplate)
 
 The first three are public repositories that need not be altered for standard models. The fourth is a project specific package. These are not made public because of the sensitive data they contain. A template is made available that can be cloned and set up for your own projects.
