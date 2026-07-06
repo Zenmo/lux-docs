@@ -39,6 +39,9 @@ nav:
     - Loader:
       - Overview: dev/loader/overview.md
       - Lombok: dev/loader/lombok/lombok.md
+      - Data Generic:
+        - Overview: loader/data_Generic/data_Generic.md
+        - Domestic hot water tapping profiles: loader/data_Generic/DHW_profiles.md
     - Interface:
       - Overview: dev/interface/overview.md
     - ResultsUI:
