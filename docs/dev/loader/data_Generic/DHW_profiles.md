@@ -89,5 +89,5 @@ The resulting energy profiles are stored in the worksheet `dhw_profiles_kwh`, wh
 * No holiday periods (nobody is ever away from home).
 * Draw-offs are statistically distributed; the profiles are stochastic realisations, not measured data.
 * Hot water is tapped at 60 °C.
-* Cold water enters at the soil temperature at 100 cm depth (KNMI station De Bilt, year 1981).
+* Cold water enters at the soil temperature at 100 cm depth (KNMI station De Bilt, year 2025).
 * Heating the water is assumed lossless in this conversion; storage and distribution losses are not included in the tapping profiles.
