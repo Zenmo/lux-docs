@@ -7,7 +7,7 @@ The [data_Generic repository](https://github.com/Zenmo/data_Generic) contains al
 The files in the root of the repository are the ones loaded into the models:
 
 * `db_profiles.xlsx`: the main profile workbook, with normalized production and demand profiles per year (2023, 2024, 2025) at hourly and quarter-hourly resolution. It contains normalized wind and solar production (for several locations and panel orientations), ambient temperature, day-ahead electricity prices, and normalized demand profiles for households (electricity, hot water, cooking), buildings, industry and logistics. The `Documentation` worksheet inside the workbook defines each profile column.
-* `DHWProfiles_data.xlsx`: stochastic domestic hot water tapping profiles in kWh per quarter-hour for household sizes of 1 to 5 persons, 20 variants each. How these were generated is described on the [Domestic hot water tapping profiles](Domestic hot water tapping profiles.md) page.
+* `DHWProfiles_data.xlsx`: stochastic domestic hot water tapping profiles in kWh per quarter-hour for household sizes of 1 to 5 persons, 20 variants each. How these were generated is described on the [Domestic hot water tapping profiles](DHW_profiles.md) page.
 * `ChargerProfile_data.xlsx` and `Laadprofielen_standaard.xlsx`: electric vehicle charging profiles.
 * `AlbatrossProcessedVehicleTrips.csv`: passenger vehicle trip patterns (departure time, arrival time and distance per trip) derived from the Albatross activity-based transport model, used to simulate driving and charging behaviour of household EVs.
 * `inputTruckTripPatterns.csv`: trip patterns for trucks, analogous to the vehicle trips above, used for logistics fleets.
